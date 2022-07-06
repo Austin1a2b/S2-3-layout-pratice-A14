@@ -1,0 +1,325 @@
+/* 載入字型 */
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=PT+Sans:wght@400;700&display=swap");
+
+/* 移除瀏覽器預設值及設定共用樣式 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fff;
+  font-family: "PT Sans", sans-serif;
+  /* 設定字型 */
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  line-height: 0.9;
+}
+
+p {
+  margin: 0;
+}
+
+ul,
+li {
+  list-style-type: none;
+  /* 拿掉前方圈圈 */
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  /* 拿掉底線 */
+  color: black;
+}
+
+/***********以下開始為作業部分***************/
+header {
+  position: fixed;
+  z-index: 9;
+  width: 100%;
+  background-color: white;
+  opacity: 0.9;
+}
+
+.container {
+  width: 100%;
+}
+
+.nav-bar {
+  width: 100%;
+  height: 60px;
+  display: grid;
+  grid-template-columns: 10px repeat(3, 1fr) 10px;
+  position: relative;
+  font-weight: 700;
+}
+
+.logo {
+  display: flex;
+  grid-column: 3/4;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-img {
+  height: 60px;
+  padding-right: 30px;
+}
+
+.nav-list {
+  display: none;
+}
+
+.nav-icon {
+  right: 2%;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  grid-gap: 1rem;
+  align-content: center;
+  font-size: 1.6em;
+}
+
+.search {
+  position: absolute;
+  left: 2rem;
+}
+
+#category {
+  padding-top: 60px;
+}
+
+.category-name {
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.selection-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.selection {
+  width: 40%;
+  margin: 0.3rem 0;
+  height: 2.5rem;
+}
+
+.page {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+/********商品區*********/
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-flow: row;
+  justify-content: center;
+  grid-gap: 0.7rem;
+}
+
+.card {
+  overflow: hidden;
+  position: relative;
+}
+
+.real-img,
+.cover-img {
+  width: 100%;
+  /* 維持 1:1 讓照片保持正方形*/
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  z-index: 1;
+  display: block;
+  transition: opacity 0.6s ease-out;
+}
+
+.cover-img {
+  position: relative;
+}
+
+.real-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.favorite-icon {
+  position: absolute;
+  z-index: 2;
+  right: 6%;
+  top: 6%;
+  background: white;
+  border: 0.3rem solid white;
+  border-radius: 50%;
+}
+
+.card-info {
+  text-align: center;
+}
+
+.commodity-name,
+.commodity-price {
+  font-size: 0.9rem;
+  color: #2b2b2b;
+}
+
+.commodity-price {
+  font-weight: 900;
+}
+
+.sold-out-text {
+  text-decoration: line-through;
+}
+
+/****** 商品圖片效果 *******/
+.card:hover .real-img {
+  opacity: 1;
+}
+
+.card:hover .cover-img {
+  opacity: 0;
+}
+
+/********底部 訂閱資訊*********/
+
+.sub-wrapper {
+  height: 250px;
+}
+
+.sub-img {
+  height: 100%;
+  background-image: url(https://assets-lighthouse.alphacamp.co/uploads/image/file/14376/template.png);
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.sub-description {
+  padding-top: 40px;
+  text-align: center;
+}
+
+.sub-form {
+  margin: 30px auto;
+  width: 80%;
+  text-align: center;
+}
+
+.sub-form>input {
+  border: none;
+  width: 45%;
+  max-width: 350px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 25px 0 0 25px;
+}
+
+.sub-form>button {
+  margin-left: -5px;
+  border: none;
+  height: 50px;
+  background-color: black;
+  color: white;
+  width: 12%;
+  min-width: 90px;
+  border-radius: 0 25px 25px 0;
+}
+
+.sub-policy {
+  text-align: center;
+  font-weight: 500;
+}
+
+.sub-policy>a {
+  text-decoration: underline;
+}
+
+/********footer********/
+
+footer {
+  background-color: #f0f0f0;
+  text-align: center;
+  height: 30px;
+}
+
+/*********寬度600px 以上 的設定***********/
+@media screen and (min-width: 600px) {
+  .selection-wrapper {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .selection {
+    width: 27%;
+    margin: 0.3rem;
+  }
+
+  /********商品區*********/
+  .card-wrapper {
+    grid-template-columns: repeat(3, 30vw);
+  }
+}
+
+/*********寬度960px 以上 的設定***********/
+@media screen and (min-width: 960px) {
+  .search {
+    position: static;
+  }
+
+  .nav-bar {
+    display: grid;
+    grid-template-columns: 2rem 1fr 1fr 1fr 2rem;
+  }
+
+  .logo {
+    grid-column: 2/3;
+    justify-content: start;
+  }
+
+  .nav-list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    height: 100%;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .selection {
+    width: 12%;
+  }
+
+  /********商品區*********/
+  .card-wrapper {
+    grid-template-columns: repeat(4, 22vw);
+  }
+}
